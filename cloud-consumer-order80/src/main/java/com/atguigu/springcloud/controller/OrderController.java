@@ -20,7 +20,7 @@ import javax.annotation.Resource;
 public class OrderController {
 //    public static final  String PAYMENT_URL="http://localhost:8001";
     public static final  String PAYMENT_URL="http://CLOUD-PAYMENT-SERVICE";
-
+    private String modelname;
 
     @Resource
     private RestTemplate restTemplate;
@@ -28,6 +28,7 @@ public class OrderController {
 
     @GetMapping("/consumer/payment/create")
     public CommonResult<Payment> create(Payment payment) {
+        System.out.println("zs");
         return restTemplate.postForObject(PAYMENT_URL + "/payment/create", payment, CommonResult.class);
     }
 
